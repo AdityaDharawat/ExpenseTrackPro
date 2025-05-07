@@ -1,0 +1,62 @@
+-- Users Table
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    full_name VARCHAR(100),
+    role VARCHAR(20) DEFAULT 'USER',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Categories Table
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(255),
+    created_by BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Expenses Table
+CREATE TABLE IF NOT EXISTS expenses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    amount DECIMAL(10,2) NOT NULL,
+    description VARCHAR(255),
+    date DATE NOT NULL,
+    category_id BIGINT,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Budgets Table
+CREATE TABLE IF NOT EXISTS budgets (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    amount DECIMAL(10,2) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    category_id BIGINT,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Reports Table
+CREATE TABLE IF NOT EXISTS reports (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(50) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    user_id BIGINT NOT NULL,
+    generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    report_data TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
