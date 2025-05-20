@@ -5,7 +5,14 @@
 The **Enterprise Expense Management System** is a modern, responsive, and scalable web application designed for companies to efficiently track, manage, and analyze employee expenses.  
 This project implements a fully professional frontend using **React.js** with **Vite**, styled with **Material UI**, and follows best practices for modularity, security, and responsiveness.
 
-This repository contains the **frontend** part only, intended to connect with a separate **Spring Boot backend**.
+Followed by the product illustration:
+![Screenshot 2025-05-20 121527](https://github.com/user-attachments/assets/2ccef3c5-67a1-498f-beb2-9894e5407fca)
+![Screenshot 2025-05-20 121606](https://github.com/user-attachments/assets/484549b0-a4fe-44bb-b1d0-dbad769be1c1)
+![Screenshot 2025-05-20 121618](https://github.com/user-attachments/assets/5001bdf6-d517-487b-a631-37446a67bc02)
+![Screenshot 2025-05-20 121632](https://github.com/user-attachments/assets/68ba001d-943f-45f5-8f7c-ec1fbbe7809c)
+![Screenshot 2025-05-20 121646](https://github.com/user-attachments/assets/2d0a476e-08d5-4647-89ef-339729a47b06)
+![Screenshot 2025-05-20 121905](https://github.com/user-attachments/assets/37c7c57c-9853-4a90-a296-47c319764e58)
+
 
 ---
 
@@ -131,3 +138,5 @@ src/
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
