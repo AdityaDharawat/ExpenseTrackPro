@@ -1,0 +1,1 @@
+export const about = (): string => 'This is a TypeScript module';
